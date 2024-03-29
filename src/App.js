@@ -237,32 +237,14 @@
 //     )
 // }
 
-import React, { useState } from "react";
-import InputArea from "./components/inputArea";
-import Todolist from "./components/todolist";
-
+import React from "react";
+import TodoApp from "./components/TodoApp";
 export default function App(){
 
-    const [items, setItems] = useState([])
-    const addItem = (inputText)=>{
-        setItems((prevItems) => {
-            return [...prevItems, inputText]
-        })
-    }
+    
     return(
         <div>
-            <h1>TodoList</h1>
-            <InputArea onAdd={addItem} />
-            <ul>
-                {
-                    items.map((item, index)=>(
-                        <Todolist
-                         key={index}
-                         id={index}
-                         text={item} />
-                    ))
-                }
-            </ul>
+         <TodoApp />
         </div>
     )
 }
