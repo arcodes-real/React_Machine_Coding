@@ -239,12 +239,14 @@
 
 import React from "react";
 import TodoApp from "./components/TodoApp";
+import Timer from "./components/Timer";
 export default function App(){
 
     
     return(
         <div>
          <TodoApp />
+         <Timer />
         </div>
     )
 }
