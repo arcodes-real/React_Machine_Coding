@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 300px;
+}
+
+.diagonal{
+    width: 100px;
+    height: 100px;
+    transform: rotate(-45deg);
+}
