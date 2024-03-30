@@ -240,13 +240,18 @@
 import React from "react";
 import TodoApp from "./components/TodoApp";
 import Timer from "./components/Timer";
+import PopulationFetch from "./components/PopulationFetch";
 export default function App(){
 
     
     return(
         <div>
+        <h1>Machine Coding 1</h1>
          <TodoApp />
+         <h1>Machine Coding 2</h1>
          <Timer />
+         <h1>Machine Coding 3</h1>
+         <PopulationFetch />
         </div>
     )
 }
