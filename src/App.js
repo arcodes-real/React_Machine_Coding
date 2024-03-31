@@ -241,6 +241,7 @@ import React from "react";
 import TodoApp from "./components/TodoApp";
 import Timer from "./components/Timer";
 import PopulationFetch from "./components/PopulationFetch";
+import Practice from "./components/practice";
 export default function App(){
 
     
@@ -251,7 +252,7 @@ export default function App(){
          <h1>Machine Coding 2</h1>
          <Timer />
          <h1>Machine Coding 3</h1>
-         <PopulationFetch />
+         <Practice />
         </div>
     )
 }

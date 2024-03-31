@@ -1,42 +1,40 @@
 import React, { useEffect, useState } from 'react'
 
+export default function Practice() {
 
-export default function PopulationFetch() {
-    const [data, setData] = useState([])
-    const [originalData, setOriginalData] = useState([])
-    const [searchTerm, setSearchTerm] = useState("")
+    const [data, setData] = useState([]);
+    const [originalData, setOriginalData] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
-    // fetch the data
     useEffect(() =>{
-        const storedData = localStorage.getItem("populationData");
+        const storedData = localStorage.getItem("populationData")
         if(storedData){
             setOriginalData(JSON.parse(storedData))
             setData(JSON.parse(storedData))
         }else{
-        const fetchData = async()=>{
+        const fetchData = async() =>{
             const response = await fetch("https://datausa.io/api/data?drilldowns=Nation&measures=Population")
-            const jsonData = await response.json()
+            const jsonData = await response.json();
             setData(jsonData.data)
             setOriginalData(jsonData.data)
         }
-        fetchData();
+        fetchData()
     }
     },[])
 
-    // debouncing effect
     useEffect(() =>{
         const timeoutId = setTimeout(() =>{
             const filteredData = originalData.filter(
                 (item) =>
-                    item.Year.toString().includes(searchTerm)||
-                    item.Population.toString().includes(searchTerm)
-                )
+                item.Year.toString().includes(searchTerm)||
+                item.Population.toString().includes(searchTerm)
+            )
             setData(filteredData)
         },300);
         return () => clearTimeout(timeoutId)
     },[searchTerm, originalData])
 
-    const handleReset = ()=>{
+    const handleReset = () =>{
         setData(originalData)
         setSearchTerm("")
     }
@@ -48,39 +46,37 @@ export default function PopulationFetch() {
            return newData
         })
     }
-    
   return (
     <div>
-        <input
-         type="text"
-         value={searchTerm}
-         onChange={(event) =>{
-            setSearchTerm(event.target.value)
-            
-         }} />
-         <button onClick={handleReset}>Reset</button>
-       <table>
+      <input
+       type='text'
+       value={searchTerm}
+       onChange={(event) =>{
+        setSearchTerm(event.target.value)
+       }} />
+      <button onClick={handleReset}>Reset</button>
+      <table>
         <thead>
             <tr>
                 <td>Year</td>
                 <td>Population</td>
-                
             </tr>
         </thead>
         <tbody>
             {
-                data.map((item, index) =>(
+                data.map((item, index) => (
                     <tr key={index}>
                         <td>{item.Year}</td>
                         <td>{item.Population}</td>
                         <td>
-                            <button onClick={() => handleDelete(index)} >Delete</button>
+                            <button onClick={() => handleDelete(index)}>Delete</button>
                         </td>
                     </tr>
+                    
                 ))
             }
         </tbody>
-       </table>
+      </table>
     </div>
   )
 }
