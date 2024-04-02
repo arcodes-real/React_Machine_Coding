@@ -10,6 +10,11 @@ export default function TodoApp(){
             return [...prevItems, inputText]
         })
     }
+    const handleDelete = (id) =>{
+        setItems((prevItems) =>{
+            return prevItems.filter((item, index) => {return index !== id})
+        })
+    }
     return(
         <div>
             <h1>TodoList</h1>
@@ -20,7 +25,8 @@ export default function TodoApp(){
                         <Todolist
                          key={index}
                          id={index}
-                         text={item} />
+                         text={item}
+                         onDelete={handleDelete} />
                     ))
                 }
             </ul>
