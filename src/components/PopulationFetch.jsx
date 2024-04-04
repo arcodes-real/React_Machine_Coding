@@ -51,6 +51,7 @@ export default function PopulationFetch() {
     
   return (
     <div>
+         <h1>Machine Coding 3</h1>
         <input
          type="text"
          value={searchTerm}

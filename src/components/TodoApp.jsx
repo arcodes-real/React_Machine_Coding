@@ -17,6 +17,7 @@ export default function TodoApp(){
     }
     return(
         <div>
+            <h1>Machine Coding 1</h1>
             <h1>TodoList</h1>
             <InputArea onAdd={addItem} />
             <ul>

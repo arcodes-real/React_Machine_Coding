@@ -238,6 +238,8 @@
 // }
 
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
 import TodoApp from "./components/TodoApp";
 import Timer from "./components/Timer";
 import PopulationFetch from "./components/PopulationFetch";
@@ -247,12 +249,16 @@ export default function App(){
     
     return(
         <div>
-        <h1>Machine Coding 1</h1>
-         <TodoApp />
-         <h1>Machine Coding 2</h1>
-         <Timer />
-         <h1>Machine Coding 3</h1>
-         <Practice />
+        <BrowserRouter>
+        <Routes>
+        <Route to="/" element={<Home />}/>
+        <Route path="/todolist" element={<TodoApp />} />
+        <Route path="/timer" element={<Timer />} />
+        <Route path="/population" element={<PopulationFetch />} />
+        <Route path="*" element={<Home />}/>
+        </Routes>
+        </BrowserRouter>
+         
         </div>
     )
 }

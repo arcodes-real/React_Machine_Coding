@@ -46,6 +46,7 @@ export default function Timer() {
     }
   return (
     <div>
+      <h1>Machine Coding 2</h1>
       <h1>{getMin} Min {getSec} Sec</h1>
       <button onClick={handleStartStop}>{timerHandler? "Stop" : "Start"}</button>
       <button onClick={handleReset}>Reset</button>
