@@ -244,6 +244,7 @@ import TodoApp from "./components/TodoApp";
 import Timer from "./components/Timer";
 import PopulationFetch from "./components/PopulationFetch";
 import Practice from "./components/practice";
+import Datafetch from "./components/datafetch";
 export default function App(){
 
     
@@ -254,11 +255,11 @@ export default function App(){
         <Route to="/" element={<Home />}/>
         <Route path="/todolist" element={<TodoApp />} />
         <Route path="/timer" element={<Timer />} />
-        <Route path="/population" element={<PopulationFetch />} />
+        <Route path="/population" element={<Practice />} />
         <Route path="*" element={<Home />}/>
         </Routes>
         </BrowserRouter>
-         
+         <Datafetch />
         </div>
     )
 }
